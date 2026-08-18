@@ -1,17 +1,27 @@
 [
   {
-    "titulo": "Como fazer amigos e influenciar pessoas"
+    "titulo": "Como fazer amigos e influenciar pessoas",
+    "autor": "Dale Carnegie",
+    "link": "https://www.amazon.com.br/s?k=Como+fazer+amigos+e+influenciar+pessoas+Dale+Carnegie"
   },
   {
-    "titulo": "Frankenstein"
+    "titulo": "Frankenstein",
+    "autor": "Mary Shelley",
+    "link": "https://www.amazon.com.br/s?k=Frankenstein+Mary+Shelley"
   },
   {
-    "titulo": "Drácula"
+    "titulo": "Drácula",
+    "autor": "Bram Stoker",
+    "link": "https://www.amazon.com.br/s?k=Dracula+Bram+Stoker"
   },
   {
-    "titulo": "O Conde de Monte Cristo"
+    "titulo": "O Conde de Monte Cristo",
+    "autor": "Alexandre Dumas",
+    "link": "https://www.amazon.com.br/s?k=O+Conde+de+Monte+Cristo+Alexandre+Dumas"
   },
   {
-    "titulo": "Os Miseráveis"
+    "titulo": "Os Miseráveis",
+    "autor": "Victor Hugo",
+    "link": "https://www.amazon.com.br/s?k=Os+Miseraveis+Victor+Hugo"
   }
 ]

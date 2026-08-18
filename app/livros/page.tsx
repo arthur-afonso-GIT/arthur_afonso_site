@@ -48,7 +48,7 @@ export default function Livros() {
                 </div>
               )}
               {livro.comentario && <p className="book-review">{livro.comentario}</p>}
-              {livro.link && <a className="book-link" href={livro.link} target="_blank" rel="noreferrer">Onde encontrar <span>↗</span></a>}
+              {livro.link && <a className="book-link" href={livro.link} target="_blank" rel="noreferrer">Ver na Amazon <span>↗</span></a>}
             </div>
           </article>
         ))}
