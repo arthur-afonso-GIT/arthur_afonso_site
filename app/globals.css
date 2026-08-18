@@ -37,7 +37,7 @@ main { flex:1; width:min(1240px,calc(100% - 48px)); margin:0 auto; }
 .project-panel>div { position:relative; z-index:1; }
 .project-panel span { display:block; font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; opacity:.58; }
 .project-panel h2 { margin:clamp(4rem,10vh,8rem) 0 0; font-size:clamp(4.5rem,13vw,12rem); line-height:.78; letter-spacing:-.085em; font-weight:520; }
-.project-panel.prontu,.project-panel.prodtrack,.project-panel.energiacerta { min-height:125vh; padding-top:36vh; }
+.project-panel.prontu,.project-panel.prodtrack,.project-panel.energiacerta,.project-panel.dronevision { min-height:125vh; padding-top:36vh; }
 .project-meta { display:flex; align-items:center; justify-content:space-between; }
 .project-meta a { display:flex; align-items:center; gap:.7rem; font-size:.76rem; letter-spacing:.08em; text-transform:uppercase; border-bottom:1px solid currentColor; padding-bottom:.35rem; }
 .project-meta i { font-style:normal; }
@@ -47,6 +47,7 @@ main { flex:1; width:min(1240px,calc(100% - 48px)); margin:0 auto; }
 .project-copy { font-size:clamp(.95rem,1.25vw,1.12rem); line-height:1.65; }
 .project-copy p { margin:0; }.project-copy p+p { margin-top:1.5rem; }
 .project-details img { display:block; width:100%; border-radius:3px; }
+.project-video { display:block; width:100%; aspect-ratio:16/10; object-fit:contain; background:#111; border-radius:3px; }
 .media-carousel { position:relative; min-width:0; touch-action:pan-y; outline:none; }
 .media-carousel:focus-visible { box-shadow:0 0 0 2px #f7f7f4; }
 .carousel-stage { width:100%; aspect-ratio:16/10; overflow:hidden; border-radius:3px; background:#050505; }
@@ -66,5 +67,5 @@ main { flex:1; width:min(1240px,calc(100% - 48px)); margin:0 auto; }
 .empty-state { border-top:1px solid var(--foreground); border-bottom:1px solid var(--line); min-height:190px; padding:2rem 0; display:grid; grid-template-columns:1fr 2fr; align-items:start; }
 .empty-state span { color:var(--muted); font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; }.empty-state p { margin:0; font-size:clamp(1.3rem,2.5vw,2rem); letter-spacing:-.035em; }
 footer { width:min(1240px,calc(100% - 48px)); margin:0 auto; padding:1.6rem 0; border-top:1px solid var(--line); display:flex; justify-content:space-between; color:var(--muted); font-size:.68rem; text-transform:uppercase; letter-spacing:.08em; }
-@media(max-width:720px) { .header,main,footer { width:calc(100% - 32px); }.header { height:72px; }.wordmark { max-width:70px; line-height:1.1; } nav { gap:1.1rem; }.home { grid-template-columns:1fr; gap:3.5rem; margin-top:3vh; padding:1rem 0 7vh; }.intro h1 { font-size:clamp(4.5rem,25vw,7rem); }.lead { margin-top:2.5rem; }.socials { margin-top:0; }.profile-photo { width:min(78vw,280px); margin-left:0; }.project-scroll { width:100%; }.project-panel { min-height:68vh; padding:2rem 16px; }.project-panel.prontu,.project-panel.prodtrack,.project-panel.energiacerta { padding-top:36vh; }.project-panel h2 { font-size:clamp(3.6rem,18vw,6rem); }.project-details { grid-template-columns:1fr; }.project-details>img,.media-carousel { grid-row:1; }.carousel-arrow { width:34px; height:34px; }.index-page { padding-top:10vh; }.empty-state { grid-template-columns:1fr; gap:2rem; } }
+@media(max-width:720px) { .header,main,footer { width:calc(100% - 32px); }.header { height:72px; }.wordmark { max-width:70px; line-height:1.1; } nav { gap:1.1rem; }.home { grid-template-columns:1fr; gap:3.5rem; margin-top:3vh; padding:1rem 0 7vh; }.intro h1 { font-size:clamp(4.5rem,25vw,7rem); }.lead { margin-top:2.5rem; }.socials { margin-top:0; }.profile-photo { width:min(78vw,280px); margin-left:0; }.project-scroll { width:100%; }.project-panel { min-height:68vh; padding:2rem 16px; }.project-panel.prontu,.project-panel.prodtrack,.project-panel.energiacerta,.project-panel.dronevision { padding-top:36vh; }.project-panel h2 { font-size:clamp(3.6rem,18vw,6rem); }.project-details { grid-template-columns:1fr; }.project-details>img,.media-carousel,.project-video { grid-row:1; }.carousel-arrow { width:34px; height:34px; }.index-page { padding-top:10vh; }.empty-state { grid-template-columns:1fr; gap:2rem; } }
 @media(prefers-reduced-motion:reduce) { * { transition:none!important; animation:none!important; } }

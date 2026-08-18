@@ -58,7 +58,19 @@ export default function Home() {
             </div>
           </div>
         </article>
-        <article className="project-panel light"><div><span>04 / 04</span><h2>dronevision</h2></div></article>
+        <article className="project-panel light dronevision">
+          <div className="project-content">
+            <div className="project-meta"><span>04 / 04</span><a href="https://github.com/arrudacaua/DroneVision" target="_blank" rel="noreferrer"><b className="github-label"><img src="/github-mark.png" alt="" />GitHub</b><i>↗</i></a></div>
+            <h2>dronevision</h2>
+            <div className="project-details">
+              <div className="project-copy">
+                <p>DroneVision é um sistema modular de visão computacional e automação de drones, desenvolvido em Python como projeto acadêmico. A solução integra processamento de imagens, reconhecimento facial, leitura de QR Codes e planejamento de rotas com o controle do drone DJI Tello, permitindo explorar a aplicação de visão computacional em sistemas autônomos e robótica.</p>
+                <p>Como projeto de engenharia de software, o DroneVision demonstra conhecimentos em Python, visão computacional, processamento de imagens, reconhecimento facial, arquitetura modular, automação e integração software–hardware.</p>
+              </div>
+              <video className="project-video" src="/dronevision-demo.mp4" controls playsInline preload="metadata" aria-label="Demonstração do DroneVision" />
+            </div>
+          </div>
+        </article>
       </section>
     </>
   );
