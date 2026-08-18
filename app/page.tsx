@@ -13,7 +13,19 @@ export default function Home() {
         </aside>
       </main>
       <section className="project-scroll" aria-label="Projetos principais">
-        <article className="project-panel dark"><div><span>01 / 04</span><h2>Prontu</h2></div></article>
+        <article className="project-panel dark prontu">
+          <div className="project-content">
+            <div className="project-meta"><span>01 / 04</span><a href="https://github.com/arthur-afonso-GIT/Prontu/tree/main" target="_blank" rel="noreferrer">GitHub ↗</a></div>
+            <h2>Prontu</h2>
+            <div className="project-details">
+              <div className="project-copy">
+                <p>Um sistema desktop de gestão para clínicas e consultórios, desenvolvido para centralizar o fluxo operacional e clínico em uma única aplicação. O sistema reúne gestão de pacientes, prontuários, agenda inteligente, acompanhamento financeiro, retornos, geração de documentos e colaboração entre membros da equipe.</p>
+                <p>O projeto foi desenvolvido em Python com PySide6, utilizando Supabase e PostgreSQL como infraestrutura de dados, além de autenticação, Row Level Security, Edge Functions em TypeScript/Deno e controle de acesso baseado em funções.</p>
+              </div>
+              <img src="/prontu-dashboard.png" alt="Painel principal do sistema Prontu" />
+            </div>
+          </div>
+        </article>
         <article className="project-panel light"><div><span>02 / 04</span><h2>Prodtrack</h2></div></article>
         <article className="project-panel dark"><div><span>03 / 04</span><h2>energiacerta</h2></div></article>
         <article className="project-panel light"><div><span>04 / 04</span><h2>dronevision</h2></div></article>
