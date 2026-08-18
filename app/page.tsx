@@ -1,6 +1,11 @@
 import { ScrollEffects } from "./ScrollEffects";
 import { MediaCarousel } from "./MediaCarousel";
 
+const droneVisionMedia = [
+  { type: "video", src: "/dronevision-demo.mp4", alt: "Demonstração do DroneVision" },
+  { type: "video", src: "/dronevision-demo-2.mp4", alt: "Segunda demonstração do DroneVision" },
+] as const;
+
 export default function Home() {
   return (
     <>
@@ -67,7 +72,7 @@ export default function Home() {
                 <p>DroneVision é um sistema modular de visão computacional e automação de drones, desenvolvido em Python como projeto acadêmico. A solução integra processamento de imagens, reconhecimento facial, leitura de QR Codes e planejamento de rotas com o controle do drone DJI Tello, permitindo explorar a aplicação de visão computacional em sistemas autônomos e robótica.</p>
                 <p>Como projeto de engenharia de software, o DroneVision demonstra conhecimentos em Python, visão computacional, processamento de imagens, reconhecimento facial, arquitetura modular, automação e integração software–hardware.</p>
               </div>
-              <video className="project-video" src="/dronevision-demo.mp4" controls playsInline preload="metadata" aria-label="Demonstração do DroneVision" />
+              <MediaCarousel items={droneVisionMedia} label="Galeria do projeto DroneVision" />
             </div>
           </div>
         </article>

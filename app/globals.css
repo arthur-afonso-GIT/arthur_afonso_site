@@ -52,8 +52,8 @@ main { flex:1; width:min(1240px,calc(100% - 48px)); margin:0 auto; }
 .media-carousel:focus-visible { box-shadow:0 0 0 2px #f7f7f4; }
 .carousel-stage { width:100%; aspect-ratio:16/10; overflow:hidden; border-radius:3px; background:#050505; }
 .carousel-stage img,.carousel-stage video { display:block; width:100%; height:100%; object-fit:contain; user-select:none; }
-.carousel-progress { position:absolute; z-index:3; top:.75rem; left:.75rem; right:.75rem; display:grid; grid-template-columns:repeat(3,1fr); gap:.35rem; }
-.carousel-progress span { height:2px; background:rgba(255,255,255,.35); opacity:1; }
+.carousel-progress { position:absolute; z-index:3; top:.75rem; left:.75rem; right:.75rem; display:flex; gap:.35rem; }
+.carousel-progress span { flex:1; height:2px; background:rgba(255,255,255,.35); opacity:1; }
 .carousel-progress span.active { background:#fff; }
 .carousel-arrow { position:absolute; z-index:3; top:50%; width:38px; height:38px; border:0; border-radius:50%; background:rgba(247,247,244,.9); color:#111; display:grid; place-items:center; transform:translateY(-50%); cursor:pointer; font-size:1rem; }
 .carousel-arrow.previous { left:.8rem; }.carousel-arrow.next { right:.8rem; }

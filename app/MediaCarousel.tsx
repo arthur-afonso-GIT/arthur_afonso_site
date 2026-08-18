@@ -2,13 +2,25 @@
 
 import { useRef, useState } from "react";
 
-const media = [
+const energiaCertaMedia = [
   { type: "image", src: "/energiacerta-dashboard.jpeg", alt: "Dashboard do EnergiaCerta" },
   { type: "video", src: "/energiacerta-demo.mp4", alt: "Demonstração do EnergiaCerta" },
   { type: "image", src: "/energiacerta-hardware.jpeg", alt: "Protótipo físico do EnergiaCerta com Arduino" },
 ] as const;
 
-export function MediaCarousel() {
+type MediaItem = {
+  type: "image" | "video";
+  src: string;
+  alt: string;
+};
+
+type MediaCarouselProps = {
+  items?: readonly MediaItem[];
+  label?: string;
+};
+
+export function MediaCarousel({ items = energiaCertaMedia, label = "Galeria do projeto EnergiaCerta" }: MediaCarouselProps) {
+  const media = items;
   const [current, setCurrent] = useState(0);
   const pointerStart = useRef<number | null>(null);
   const go = (direction: number) => setCurrent((current + direction + media.length) % media.length);
@@ -17,7 +29,7 @@ export function MediaCarousel() {
     <div
       className="media-carousel"
       role="region"
-      aria-label="Galeria do projeto EnergiaCerta"
+      aria-label={label}
       tabIndex={0}
       onKeyDown={(event) => {
         if (event.key === "ArrowLeft") go(-1);
