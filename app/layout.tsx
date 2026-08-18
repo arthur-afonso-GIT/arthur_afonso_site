@@ -19,7 +19,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <Link className="wordmark" href="/">Arthur Afonso</Link>
           <nav aria-label="Navegação principal">
             <Link href="/">Início</Link>
-            <Link href="/projetos">Projetos</Link>
             <Link href="/livros">Livros</Link>
           </nav>
         </header>
