@@ -10,7 +10,7 @@ export default function Home() {
           <p className="lead">Estudante de Sistemas de Informação, atualmente no 2º período, com interesse em Inteligência Artificial, LLMs, Dados e Engenharia de Software. Entusiasta de tecnologia e desenvolvimento de software, busco aprofundar meus conhecimentos por meio de projetos práticos, explorando a construção de aplicações, soluções baseadas em IA e sistemas orientados a dados.</p>
         </section>
         <aside className="socials" aria-label="Redes sociais">
-          <a href="https://github.com/arthur-afonso-GIT" target="_blank" rel="noreferrer"><span>GitHub</span><i>↗</i></a>
+          <a href="https://github.com/arthur-afonso-GIT" target="_blank" rel="noreferrer"><b className="github-label"><img src="/github-mark.png" alt="" />GitHub</b><i>↗</i></a>
           <a href="https://www.linkedin.com/in/arthur-flor%C3%AAncio-afonso/" target="_blank" rel="noreferrer"><span>LinkedIn</span><i>↗</i></a>
           <img className="profile-photo" src="/arthur-afonso.jpg" alt="Arthur Afonso" />
         </aside>
@@ -18,7 +18,7 @@ export default function Home() {
       <section className="project-scroll" aria-label="Projetos principais">
         <article className="project-panel dark prontu">
           <div className="project-content">
-            <div className="project-meta"><span>01 / 04</span><a href="https://github.com/arthur-afonso-GIT/Prontu/tree/main" target="_blank" rel="noreferrer">GitHub ↗</a></div>
+            <div className="project-meta"><span>01 / 04</span><a href="https://github.com/arthur-afonso-GIT/Prontu/tree/main" target="_blank" rel="noreferrer"><b className="github-label"><img src="/github-mark.png" alt="" />GitHub</b><i>↗</i></a></div>
             <h2>Prontu</h2>
             <div className="project-details">
               <div className="project-copy">
@@ -31,7 +31,7 @@ export default function Home() {
         </article>
         <article className="project-panel light prodtrack">
           <div className="project-content">
-            <div className="project-meta"><span>02 / 04</span><a href="https://github.com/arthur-afonso-GIT/ProdTrack/tree/main" target="_blank" rel="noreferrer">GitHub ↗</a></div>
+            <div className="project-meta"><span>02 / 04</span><a href="https://github.com/arthur-afonso-GIT/ProdTrack/tree/main" target="_blank" rel="noreferrer"><b className="github-label"><img src="/github-mark.png" alt="" />GitHub</b><i>↗</i></a></div>
             <h2>Prodtrack</h2>
             <div className="project-details">
               <div className="project-copy">
