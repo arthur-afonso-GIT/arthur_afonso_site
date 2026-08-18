@@ -18,8 +18,7 @@ main { flex:1; width:min(1240px,calc(100% - 48px)); margin:0 auto; }
 .intro h1,.page-title h1 { margin:0; font-size:clamp(5rem,11vw,10.5rem); line-height:.78; letter-spacing:-.085em; font-weight:520; }
 .intro h1 span,.page-title h1 span { color:var(--accent); }
 .lead { max-width:720px; margin:4rem 0 0; font-size:clamp(1.05rem,1.6vw,1.35rem); line-height:1.6; letter-spacing:-.02em; }
-.socials { margin-top:3.2rem; border-top:1px solid var(--foreground); }
-.socials>p { margin:1rem 0 2.4rem; color:var(--muted); font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; }
+.socials { margin-top:.45rem; border-top:1px solid var(--foreground); }
 .socials a { display:flex; justify-content:space-between; align-items:center; padding:1.25rem 0; border-bottom:1px solid var(--line); font-size:.94rem; transition:padding .2s,color .2s; }
 .socials a:hover,.socials a:focus-visible { padding-left:.45rem; color:var(--accent); }
 .socials i { font-style:normal; }
