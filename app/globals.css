@@ -22,12 +22,12 @@ main { flex:1; width:min(1240px,calc(100% - 48px)); margin:0 auto; }
 .socials a { display:flex; justify-content:space-between; align-items:center; padding:1.25rem 0; border-bottom:1px solid var(--line); font-size:.94rem; transition:padding .2s,color .2s; }
 .socials a:hover,.socials a:focus-visible { padding-left:.45rem; color:var(--accent); }
 .socials i { font-style:normal; }
-.profile-photo { display:block; width:clamp(150px,14vw,200px); aspect-ratio:1; margin:2rem 0 0 auto; border-radius:50%; object-fit:cover; object-position:52% 48%; filter:grayscale(20%); }
+.profile-photo { display:block; width:min(100%,320px); aspect-ratio:1; margin:2rem auto 0; border-radius:50%; object-fit:cover; object-position:52% 48%; filter:grayscale(20%); }
 .index-page { padding:11vh 0 10vh; }
 .page-title { padding-bottom:8vh; }
 .page-title h1 { font-size:clamp(5rem,10vw,9rem); }
 .empty-state { border-top:1px solid var(--foreground); border-bottom:1px solid var(--line); min-height:190px; padding:2rem 0; display:grid; grid-template-columns:1fr 2fr; align-items:start; }
 .empty-state span { color:var(--muted); font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; }.empty-state p { margin:0; font-size:clamp(1.3rem,2.5vw,2rem); letter-spacing:-.035em; }
 footer { width:min(1240px,calc(100% - 48px)); margin:0 auto; padding:1.6rem 0; border-top:1px solid var(--line); display:flex; justify-content:space-between; color:var(--muted); font-size:.68rem; text-transform:uppercase; letter-spacing:.08em; }
-@media(max-width:720px) { .header,main,footer { width:calc(100% - 32px); }.header { height:72px; }.wordmark { max-width:70px; line-height:1.1; } nav { gap:1.1rem; }.home { grid-template-columns:1fr; gap:3.5rem; margin-top:3vh; padding:1rem 0 7vh; }.intro h1 { font-size:clamp(4.5rem,25vw,7rem); }.lead { margin-top:2.5rem; }.socials { margin-top:0; }.profile-photo { width:150px; margin-left:0; }.index-page { padding-top:10vh; }.empty-state { grid-template-columns:1fr; gap:2rem; } }
+@media(max-width:720px) { .header,main,footer { width:calc(100% - 32px); }.header { height:72px; }.wordmark { max-width:70px; line-height:1.1; } nav { gap:1.1rem; }.home { grid-template-columns:1fr; gap:3.5rem; margin-top:3vh; padding:1rem 0 7vh; }.intro h1 { font-size:clamp(4.5rem,25vw,7rem); }.lead { margin-top:2.5rem; }.socials { margin-top:0; }.profile-photo { width:min(72vw,240px); margin-left:0; }.index-page { padding-top:10vh; }.empty-state { grid-template-columns:1fr; gap:2rem; } }
 @media(prefers-reduced-motion:reduce) { * { transition:none!important; } }
