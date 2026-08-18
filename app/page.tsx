@@ -1,4 +1,5 @@
 import { ScrollEffects } from "./ScrollEffects";
+import { MediaCarousel } from "./MediaCarousel";
 
 export default function Home() {
   return (
@@ -43,7 +44,20 @@ export default function Home() {
             </div>
           </div>
         </article>
-        <article className="project-panel dark"><div><span>03 / 04</span><h2>energiacerta</h2></div></article>
+        <article className="project-panel dark energiacerta">
+          <div className="project-content">
+            <div className="project-meta"><span>03 / 04</span></div>
+            <h2>energiacerta</h2>
+            <div className="project-details">
+              <div className="project-copy">
+                <p>Uma aplicação desktop voltada ao monitoramento e gerenciamento de energia solar residencial, desenvolvida para acompanhar em tempo real a geração e o consumo de energia de uma residência. O EnergiaCerta possui suporte à comunicação serial com Arduino, permitindo receber medições de dispositivos físicos, mas também conta com um modo de simulação.</p>
+                <p>O sistema também implementa um algoritmo de gerenciamento automático de cargas. Quando identifica um déficit entre geração, consumo e disponibilidade da bateria, a aplicação pode desconectar cargas não críticas considerando sua prioridade e consumo.</p>
+                <p>O projeto foi desenvolvido em Python com PySide6 (Qt), utilizando Matplotlib para visualização de dados, PySerial para comunicação com Arduino e JSON para persistência local.</p>
+              </div>
+              <MediaCarousel />
+            </div>
+          </div>
+        </article>
         <article className="project-panel light"><div><span>04 / 04</span><h2>dronevision</h2></div></article>
       </section>
     </>
