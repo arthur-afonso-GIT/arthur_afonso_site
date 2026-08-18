@@ -1,6 +1,9 @@
+import { ScrollEffects } from "./ScrollEffects";
+
 export default function Home() {
   return (
     <>
+      <ScrollEffects />
       <main className="home">
         <section className="intro">
           <h1>Arthur<br />Afonso<span>.</span></h1>
@@ -26,7 +29,20 @@ export default function Home() {
             </div>
           </div>
         </article>
-        <article className="project-panel light"><div><span>02 / 04</span><h2>Prodtrack</h2></div></article>
+        <article className="project-panel light prodtrack">
+          <div className="project-content">
+            <div className="project-meta"><span>02 / 04</span><a href="https://github.com/arthur-afonso-GIT/ProdTrack/tree/main" target="_blank" rel="noreferrer">GitHub ↗</a></div>
+            <h2>Prodtrack</h2>
+            <div className="project-details">
+              <div className="project-copy">
+                <p>Uma aplicação desktop de produtividade e gestão de atividades de trabalho, desenvolvida para tornar simples e rápido o registro, acompanhamento e comprovação das horas trabalhadas.</p>
+                <p>A aplicação funciona de forma totalmente local, sem depender de servidor, navegador ou criação de conta. Os dados são armazenados em SQLite, com sistema de backups automáticos e manuais. O ProdTrack também oferece geração de relatórios profissionais em PDF.</p>
+                <p>Utiliza pandas, openpyxl e ReportLab, PySide6, Qt Quick e QML.</p>
+              </div>
+              <img src="/prodtrack-dashboard.png" alt="Tela inicial do sistema ProdTrack" />
+            </div>
+          </div>
+        </article>
         <article className="project-panel dark"><div><span>03 / 04</span><h2>energiacerta</h2></div></article>
         <article className="project-panel light"><div><span>04 / 04</span><h2>dronevision</h2></div></article>
       </section>
