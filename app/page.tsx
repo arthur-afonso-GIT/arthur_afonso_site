@@ -8,6 +8,7 @@ export default function Home() {
       <aside className="socials" aria-label="Redes sociais">
         <a href="https://github.com/arthur-afonso-GIT" target="_blank" rel="noreferrer"><span>GitHub</span><i>↗</i></a>
         <a href="https://www.linkedin.com/in/arthur-flor%C3%AAncio-afonso/" target="_blank" rel="noreferrer"><span>LinkedIn</span><i>↗</i></a>
+        <img className="profile-photo" src="/arthur-afonso.jpg" alt="Arthur Afonso" />
       </aside>
     </main>
   );
