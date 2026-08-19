@@ -23,8 +23,8 @@ export default function Livros() {
   const catalogo = livros as Livro[];
 
   return (
-    <main className="index-page">
-      <header className="page-title"><p className="overline">02 / Livros</p><h1>Livros<span>.</span></h1></header>
+    <main className="index-page books-page">
+      <header className="page-title books-title"><h1>Livros<span>.</span></h1></header>
       <section className="books-grid" aria-label="Livros">
         {catalogo.map((livro, index) => (
           <article className="book-card" key={livro.titulo}>
