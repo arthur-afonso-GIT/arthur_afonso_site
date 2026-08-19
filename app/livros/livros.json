@@ -2,30 +2,40 @@
   {
     "titulo": "Como fazer amigos e influenciar pessoas",
     "autor": "Dale Carnegie",
+    "nota": 5,
+    "comentario": "",
     "capa": "/livros/como-fazer-amigos.jpg",
     "link": "https://www.amazon.com.br/s?k=Como+fazer+amigos+e+influenciar+pessoas+Dale+Carnegie"
   },
   {
     "titulo": "Frankenstein",
     "autor": "Mary Shelley",
+    "nota": 5,
+    "comentario": "",
     "capa": "/livros/frankenstein.jpg",
     "link": "https://www.amazon.com.br/s?k=Frankenstein+Mary+Shelley"
   },
   {
     "titulo": "Drácula",
     "autor": "Bram Stoker",
+    "nota": 5,
+    "comentario": "",
     "capa": "/livros/dracula.jpg",
     "link": "https://www.amazon.com.br/s?k=Dracula+Bram+Stoker"
   },
   {
     "titulo": "O Conde de Monte Cristo",
     "autor": "Alexandre Dumas",
+    "nota": 5,
+    "comentario": "",
     "capa": "/livros/conde-de-monte-cristo.jpg",
     "link": "https://www.amazon.com.br/s?k=O+Conde+de+Monte+Cristo+Alexandre+Dumas"
   },
   {
     "titulo": "Os Miseráveis",
     "autor": "Victor Hugo",
+    "nota": 5,
+    "comentario": "",
     "capa": "/livros/os-miseraveis.jpg",
     "link": "https://www.amazon.com.br/s?k=Os+Miseraveis+Victor+Hugo"
   }

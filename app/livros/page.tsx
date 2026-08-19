@@ -44,7 +44,7 @@ export default function Livros() {
                 <div className="book-meta">
                   {livro.status && <span>{livro.status}</span>}
                   {livro.categoria && <span>{livro.categoria}</span>}
-                  {livro.nota && <span aria-label={`Nota ${livro.nota} de 5`}>{livro.nota}/5</span>}
+                  {livro.nota && <span className="book-rating" aria-label={`Nota ${livro.nota} de 5`}>{"★".repeat(livro.nota)}</span>}
                 </div>
               )}
               {livro.comentario && <p className="book-review">{livro.comentario}</p>}
