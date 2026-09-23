@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import livros from "./livros.json";
+import { ExpandableImage } from "../ExpandableImage";
 
 type Livro = {
   titulo: string;
@@ -29,7 +30,7 @@ export default function Livros() {
         {catalogo.map((livro, index) => (
           <article className="book-card" key={livro.titulo}>
             {livro.capa ? (
-              <img className="book-cover" src={livro.capa} alt={`Capa de ${livro.titulo}`} />
+              <ExpandableImage className="book-cover" src={livro.capa} alt={`Capa de ${livro.titulo}`} caption={livro.titulo} />
             ) : (
               <div className="book-cover book-cover-type" aria-hidden="true">
                 <span>{String(index + 1).padStart(2, "0")}</span>

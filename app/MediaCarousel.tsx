@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { ExpandableImage } from "./ExpandableImage";
 
 const energiaCertaMedia = [
   { type: "image", src: "/energiacerta-monitoramento.png", alt: "Monitoramento geral do EnergiaCerta" },
@@ -52,7 +53,7 @@ export function MediaCarousel({ items = energiaCertaMedia, label = "Galeria do p
         {media[current].type === "video" ? (
           <video key={media[current].src} src={media[current].src} controls playsInline preload="metadata" aria-label={media[current].alt} />
         ) : (
-          <img src={media[current].src} alt={media[current].alt} draggable={false} />
+          <ExpandableImage src={media[current].src} alt={media[current].alt} draggable={false} />
         )}
       </div>
       <button className="carousel-arrow previous" type="button" onClick={() => go(-1)} aria-label="Mídia anterior">←</button>

@@ -45,11 +45,11 @@ export function HorizontalStory({ children }: { children: ReactNode }) {
       if (!frame) frame = requestAnimationFrame(update);
     };
     const measure = () => {
-      active = window.innerWidth >= 900 && window.innerHeight >= 650 && !reducedMotion.matches;
+      active = (window.innerWidth < 900 || window.innerHeight >= 650) && !reducedMotion.matches;
       section.classList.toggle("story-horizontal", active);
       track.style.removeProperty("transform");
       distance = active ? Math.max(0, track.scrollWidth - section.clientWidth) : 0;
-      zoomDistance = active ? Math.max(window.innerHeight * 1.15, 850) : 0;
+      zoomDistance = active ? Math.max(window.innerHeight * 1.15, window.innerWidth < 900 ? 480 : 850) : 0;
       const prodtrack = track.querySelector<HTMLElement>(".prodtrack");
       const prontuIntro = track.querySelector<HTMLElement>(".prontu .story-intro");
       const prontu = track.querySelector<HTMLElement>(".prontu");

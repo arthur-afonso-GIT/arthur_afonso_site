@@ -1,6 +1,7 @@
 import { ScrollEffects } from "./ScrollEffects";
 import { HorizontalStory } from "./HorizontalStory";
 import { AwardsGallery } from "./AwardsGallery";
+import { ExpandableImage } from "./ExpandableImage";
 
 const projects = [
   {
@@ -68,7 +69,7 @@ export default function Home() {
         <aside className="socials" aria-label="Redes sociais">
           <a href="https://github.com/arthur-afonso-GIT" target="_blank" rel="noreferrer"><b className="github-label"><img src="/github-mark.png" alt="" />GitHub</b><i>↗</i></a>
           <a href="https://www.linkedin.com/in/arthur-flor%C3%AAncio-afonso/" target="_blank" rel="noreferrer"><span>LinkedIn</span><i>↗</i></a>
-          <div className="portrait-frame portrait-cutout"><img className="profile-photo" src="/arthur-cutout.png" alt="Arthur Afonso" width={1168} height={1346} /></div>
+          <div className="portrait-frame portrait-cutout"><ExpandableImage className="profile-photo" src="/arthur-cutout.png" alt="Arthur Afonso" width={1168} height={1346} /></div>
         </aside>
         <a className="scroll-indicator" href="#projetos" aria-label="Ir para os projetos"><span className="scroll-indicator-art" aria-hidden="true" /></a>
       </main>
@@ -87,7 +88,7 @@ export default function Home() {
               {project.media.map((item) => (
                 <figure className={`story-figure ${item.placement} story-reveal`} key={item.src}>
                   <div className="story-image-wrap">
-                    {item.type === "video" ? <video controls playsInline preload="metadata" aria-label={item.alt}><source src={item.src} type="video/mp4" /></video> : <img src={item.src} alt={item.alt} loading="lazy" />}
+                    {item.type === "video" ? <video controls playsInline preload="metadata" aria-label={item.alt}><source src={item.src} type="video/mp4" /></video> : <ExpandableImage src={item.src} alt={item.alt} caption={item.caption} loading="lazy" />}
                   </div>
                   <figcaption>{item.caption}</figcaption>
                 </figure>
