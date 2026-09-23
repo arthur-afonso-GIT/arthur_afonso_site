@@ -15,21 +15,31 @@ export function HorizontalStory({ children }: { children: ReactNode }) {
     if (!section || !track) return;
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     let distance = 0;
-    let whiteAt = 0.5;
+    let lightStart = 0.2;
+    let lightEnd = 0.3;
+    let zoomDistance = 0;
     let active = false;
     let frame = 0;
 
     const update = () => {
       frame = 0;
-      if (!active || distance <= 0) return;
+      if (!active || distance <= 0) {
+        for (const name of ["--story-zoom", "--story-opacity", "--story-zoom-progress", "--story-bg", "--story-ink", "--story-soft", "--story-accent"]) section.style.removeProperty(name);
+        return;
+      }
       const progress = Math.min(1, Math.max(0, -section.getBoundingClientRect().top / distance));
-      const light = Math.min(1, Math.max(0, progress / whiteAt));
+      const zoomProgress = Math.min(1, Math.max(0, (-section.getBoundingClientRect().top - distance) / zoomDistance));
+      const zoom = zoomProgress * zoomProgress * (3 - 2 * zoomProgress);
+      const phase = Math.min(1, Math.max(0, (progress - lightStart) / (lightEnd - lightStart)));
+      const light = phase * phase * (3 - 2 * phase);
       track.style.transform = `translate3d(${-progress * distance}px, 0, 0)`;
-      section.style.setProperty("--story-progress", String(progress));
-      section.style.setProperty("--story-bg", blend([17, 19, 15], [232, 235, 227], light));
-      section.style.setProperty("--story-ink", blend([245, 245, 237], [21, 23, 19], light));
-      section.style.setProperty("--story-soft", blend([216, 218, 206], [70, 77, 68], light));
-      section.style.setProperty("--story-accent", blend([210, 246, 90], [49, 92, 70], light));
+      section.style.setProperty("--story-zoom", String(1 - zoom * 0.34));
+      section.style.setProperty("--story-opacity", String(1 - zoom));
+      section.style.setProperty("--story-zoom-progress", String(zoom));
+      section.style.setProperty("--story-bg", blend([10, 10, 10], [232, 232, 232], light));
+      section.style.setProperty("--story-ink", blend([242, 242, 242], [10, 10, 10], light));
+      section.style.setProperty("--story-soft", blend([176, 176, 176], [76, 76, 76], light));
+      section.style.setProperty("--story-accent", blend([255, 26, 26], [181, 16, 16], light));
     };
     const schedule = () => {
       if (!frame) frame = requestAnimationFrame(update);
@@ -39,14 +49,17 @@ export function HorizontalStory({ children }: { children: ReactNode }) {
       section.classList.toggle("story-horizontal", active);
       track.style.removeProperty("transform");
       distance = active ? Math.max(0, track.scrollWidth - section.clientWidth) : 0;
+      zoomDistance = active ? Math.max(window.innerHeight * 1.15, 850) : 0;
       const prodtrack = track.querySelector<HTMLElement>(".prodtrack");
-      if (active && distance > 0 && prodtrack) {
-        const start = prodtrack.getBoundingClientRect().left - track.getBoundingClientRect().left;
-        whiteAt = Math.max(0.1, (start - section.clientWidth) / distance);
+      const prontuIntro = track.querySelector<HTMLElement>(".prontu .story-intro");
+      const prontu = track.querySelector<HTMLElement>(".prontu");
+      if (active && distance > 0 && prodtrack && prontuIntro && prontu) {
+        lightEnd = Math.max(0.1, (prodtrack.offsetLeft - section.clientWidth) / distance);
+        lightStart = Math.min(lightEnd - 0.02, (prontu.offsetLeft + prontuIntro.offsetLeft + prontuIntro.offsetWidth) / distance);
       }
       if (distance === 0) active = false;
       section.classList.toggle("story-horizontal", active);
-      section.style.height = active ? `${window.innerHeight + distance}px` : "";
+      section.style.height = active ? `${window.innerHeight + distance + zoomDistance}px` : "";
       update();
     };
 
@@ -66,7 +79,7 @@ export function HorizontalStory({ children }: { children: ReactNode }) {
       reducedMotion.removeEventListener("change", measure);
       section.classList.remove("story-horizontal");
       section.style.removeProperty("height");
-      section.style.removeProperty("--story-progress");
+      for (const name of ["--story-zoom", "--story-opacity", "--story-zoom-progress"]) section.style.removeProperty(name);
       for (const name of ["--story-bg", "--story-ink", "--story-soft", "--story-accent"]) section.style.removeProperty(name);
       track.style.removeProperty("transform");
     };
@@ -75,8 +88,7 @@ export function HorizontalStory({ children }: { children: ReactNode }) {
   return (
     <section className="project-story" id="projetos" aria-label="Projetos" ref={sectionRef}>
       <div className="story-sticky">
-        <div className="story-track" ref={trackRef}>{children}</div>
-        <div className="story-progress" aria-hidden="true" />
+        <div className="story-stage"><div className="story-track" ref={trackRef}>{children}</div></div>
       </div>
     </section>
   );

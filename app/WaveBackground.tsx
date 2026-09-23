@@ -44,17 +44,25 @@ export function WaveBackground() {
       const story = document.querySelector<HTMLElement>(".project-story");
       const bounds = story?.getBoundingClientRect();
       const inStory = bounds && bounds.top < height / 2 && bounds.bottom > height / 2;
+      const awards = document.querySelector<HTMLElement>(".awards-page");
+      const awardsBounds = awards?.getBoundingClientRect();
+      const inAwards = awardsBounds && awardsBounds.top < height && awardsBounds.bottom > 0;
+      const landing = !!document.querySelector(".home") && !inStory && !inAwards;
+      const brand = landing || !!inStory || !!inAwards;
       const bodyColor = getComputedStyle(document.body).backgroundColor;
       const background = inStory && story
         ? getComputedStyle(story).getPropertyValue("--story-bg").trim()
+        : inAwards && awards
+          ? getComputedStyle(awards).getPropertyValue("--awards-bg").trim()
         : bodyColor === "transparent" || bodyColor.endsWith(", 0)")
           ? getComputedStyle(document.documentElement).backgroundColor
           : bodyColor;
       const [red, green, blue] = rgb(background);
       const luminance = (red * 299 + green * 587 + blue * 114) / 1000;
-      const light = Math.min(1, Math.max(0, (luminance - 18) / 214));
-      const ink = mixColor([171, 216, 125], [42, 99, 74], light);
-      const secondary = mixColor([99, 154, 137], [91, 129, 105], light);
+      const light = Math.min(1, Math.max(0, (luminance - 10) / 222));
+      const ink = brand ? mixColor([118, 118, 118], [82, 82, 82], light) : mixColor([171, 216, 125], [42, 99, 74], light);
+      const secondary = brand ? mixColor([75, 75, 75], [145, 145, 145], light) : mixColor([99, 154, 137], [91, 129, 105], light);
+      const redAccent = mixColor([255, 26, 26], [181, 16, 16], light);
       const opacity = mix(0.15, 0.17, light) + (inStory ? 0.025 : 0);
 
       context.fillStyle = `rgb(${red}, ${green}, ${blue})`;
@@ -75,9 +83,11 @@ export function WaveBackground() {
         y += (dy / (distance || 1)) * influence * 95;
         const radius = field.size * unit;
         const gradient = context.createRadialGradient(x, y, 0, x, y, radius);
-        gradient.addColorStop(0, `rgba(${index % 2 ? secondary : ink}, ${opacity})`);
-        gradient.addColorStop(0.5, `rgba(${index % 2 ? secondary : ink}, ${opacity * 0.43})`);
-        gradient.addColorStop(1, `rgba(${ink}, 0)`);
+        const fieldColor = brand && index === 1 ? redAccent : index % 2 ? secondary : ink;
+        const fieldOpacity = brand && index === 1 ? inStory ? 0.07 : 0.045 : opacity;
+        gradient.addColorStop(0, `rgba(${fieldColor}, ${fieldOpacity})`);
+        gradient.addColorStop(0.5, `rgba(${fieldColor}, ${fieldOpacity * 0.43})`);
+        gradient.addColorStop(1, `rgba(${fieldColor}, 0)`);
         context.fillStyle = gradient;
         context.beginPath();
         context.arc(x, y, radius, 0, Math.PI * 2);
@@ -87,8 +97,9 @@ export function WaveBackground() {
       if (pointer.x > -100 && pointer.x < width + 100) {
         const radius = unit * 0.25;
         const glow = context.createRadialGradient(pointer.x, pointer.y, 0, pointer.x, pointer.y, radius);
-        glow.addColorStop(0, `rgba(${ink}, ${mix(0.14, 0.16, light)})`);
-        glow.addColorStop(1, `rgba(${ink}, 0)`);
+        const glowColor = brand ? redAccent : ink;
+        glow.addColorStop(0, `rgba(${glowColor}, ${brand ? 0.1 : mix(0.14, 0.16, light)})`);
+        glow.addColorStop(1, `rgba(${glowColor}, 0)`);
         context.fillStyle = glow;
         context.beginPath();
         context.arc(pointer.x, pointer.y, radius, 0, Math.PI * 2);

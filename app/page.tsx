@@ -1,5 +1,6 @@
 import { ScrollEffects } from "./ScrollEffects";
 import { HorizontalStory } from "./HorizontalStory";
+import { AwardsGallery } from "./AwardsGallery";
 
 const projects = [
   {
@@ -59,7 +60,7 @@ export default function Home() {
     <>
       <ScrollEffects />
       <main className="home" id="inicio">
-        <div className="hero-topline"><span>PORTFÓLIO / 2026</span><span>SISTEMAS DE INFORMAÇÃO</span></div>
+        <div className="hero-topline"><span>SISTEMAS DE INFORMAÇÃO</span></div>
         <section className="intro">
           <h1><span className="name-line">Arthur</span><span className="name-line name-outline">Afonso<span>.</span></span></h1>
           <p className="lead">Estudante de Sistemas de Informação, atualmente no 2º período, com interesse em Inteligência Artificial, LLMs, Dados e Engenharia de Software. Entusiasta de tecnologia e desenvolvimento de software, busco aprofundar meus conhecimentos por meio de projetos práticos, explorando a construção de aplicações, soluções baseadas em IA e sistemas orientados a dados.</p>
@@ -69,11 +70,10 @@ export default function Home() {
           <a href="https://www.linkedin.com/in/arthur-flor%C3%AAncio-afonso/" target="_blank" rel="noreferrer"><span>LinkedIn</span><i>↗</i></a>
           <div className="portrait-frame portrait-cutout"><img className="profile-photo" src="/arthur-cutout.png" alt="Arthur Afonso" width={1168} height={1346} /></div>
         </aside>
-        <a className="explore-link" href="#projetos"><span>Explore os projetos</span><span aria-hidden="true">↓</span></a>
+        <a className="scroll-indicator" href="#projetos" aria-label="Ir para os projetos"><span className="scroll-indicator-art" aria-hidden="true" /></a>
       </main>
-      <div className="motion-strip" aria-hidden="true"><div>IDEIAS EM CÓDIGO <span>↗</span> INTELIGÊNCIA ARTIFICIAL <span>↗</span> SOFTWARE & DADOS <span>↗</span> IDEIAS EM CÓDIGO <span>↗</span> INTELIGÊNCIA ARTIFICIAL <span>↗</span> SOFTWARE & DADOS <span>↗</span></div></div>
       <HorizontalStory>
-        <div className="story-opening story-reveal"><span>UMA SELEÇÃO DE PROJETOS</span><p>Ideias que saíram<br />do papel<span>.</span></p><span>ROLE PARA EXPLORAR ↓</span></div>
+        <div className="story-opening story-reveal"><span>UMA SELEÇÃO DE PROJETOS</span><p>Ideias que saíram<br />do papel<span>.</span></p></div>
         {projects.map((project) => (
           <article className={`story-chapter ${project.id}`} key={project.id}>
             <div className="story-intro story-reveal">
@@ -96,6 +96,7 @@ export default function Home() {
           </article>
         ))}
       </HorizontalStory>
+      <AwardsGallery />
     </>
   );
 }
