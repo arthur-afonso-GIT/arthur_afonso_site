@@ -3,12 +3,20 @@
 import Image from "next/image";
 import { Fragment, useEffect, useRef, useState } from "react";
 
-const photos = [
+const conectaPhotos = [
   { src: "/conecta-apresentacao.png", alt: "Arthur apresentando o Conecta+ no hackathon", caption: "Apresentação do Conecta+", shape: "portrait" },
   { src: "/conecta-entrevista.png", alt: "Arthur em entrevista sobre o hackathon", caption: "Entrevista sobre o projeto", shape: "wide" },
   { src: "/conecta-equipe.png", alt: "Equipe reunida durante a maratona de inovação", caption: "Desenvolvimento em equipe", shape: "landscape" },
   { src: "/conecta-grupo.png", alt: "Participantes reunidos no hackathon", caption: "Hackathon Recriando a Cidade", shape: "tall" },
 ] as const;
+
+const ideathonPhotos = [
+  { src: "/ideathon-apresentacao.png", alt: "Apresentação da proposta Kairos no Ideathon DSE Talks", caption: "Apresentação do Kairos" },
+  { src: "/ideathon-premiacao.png", alt: "Equipe no palco durante a premiação do Ideathon DSE Talks", caption: "A conquista em equipe" },
+  { src: "/ideathon-pitch.png", alt: "Pitch do Kairos no Ideathon DSE Talks", caption: "O pitch da solução" },
+] as const;
+
+const photos = [...conectaPhotos, ...ideathonPhotos] as const;
 
 export function AwardsGallery() {
   const [activePhoto, setActivePhoto] = useState<number | null>(null);
@@ -35,7 +43,7 @@ export function AwardsGallery() {
               <p>Atuei como desenvolvedor back-end na API, nos processos de otimização e na arquitetura de software.</p>
             </div>
           </article>
-          {photos.map((photo, index) => (
+          {conectaPhotos.map((photo, index) => (
             <Fragment key={photo.src}>
               <figure className={`award-item award-item-${photo.shape}`}>
                 <div className="award-image">
@@ -54,6 +62,25 @@ export function AwardsGallery() {
             </Fragment>
           ))}
         </div>
+        <article className="ideathon-layout" aria-labelledby="ideathon-title">
+          <header className="ideathon-heading">
+            <p className="award-place">1º lugar</p>
+            <h3 id="ideathon-title">Ideathon<br />DSE Talks<span>.</span></h3>
+            <p>Kairos</p>
+          </header>
+          <div className="ideathon-copy">
+            <p>Neste ideathon, pude conceber junto com meu time a ideia do Kairos, a IA que avalia lacunas educacionais e gera planos de ensino personalizados. Desenvolvido em equipe sob forte limitação de tempo, o nome vem do grego e significa “tempo oportuno”.</p>
+            <p>Mais do que a solução e a vitória, o que fez a diferença foi o processo coletivo de idealizar, refinar e apresentar. Sem a contribuição e a evolução constante das ideias ao longo do desenvolvimento, o resultado não teria sido o mesmo.</p>
+          </div>
+          {ideathonPhotos.map((photo, index) => (
+            <figure className={`ideathon-photo ideathon-photo-${index + 1}`} key={photo.src}>
+              <button className="ideathon-photo-trigger" type="button" onClick={() => setActivePhoto(conectaPhotos.length + index)} aria-label={`Ampliar foto: ${photo.caption}`}>
+                <Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 800px) 80vw, 30vw" />
+              </button>
+              <figcaption>{photo.caption}</figcaption>
+            </figure>
+          ))}
+        </article>
         <dialog className="award-lightbox" ref={dialogRef} onClose={() => setActivePhoto(null)} aria-label="Foto ampliada da premiação">
           <button className="award-lightbox-close" type="button" onClick={() => dialogRef.current?.close()} aria-label="Fechar foto">×</button>
           {activePhoto !== null && (
