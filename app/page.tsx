@@ -1,82 +1,101 @@
 import { ScrollEffects } from "./ScrollEffects";
-import { MediaCarousel } from "./MediaCarousel";
+import { HorizontalStory } from "./HorizontalStory";
 
-const droneVisionMedia = [
-  { type: "video", src: "/dronevision-demo.mp4", alt: "Demonstração do DroneVision" },
-  { type: "video", src: "/dronevision-demo-2.mp4", alt: "Segunda demonstração do DroneVision" },
+const projects = [
+  {
+    id: "prontu",
+    name: "Prontu",
+    eyebrow: "GESTÃO CLÍNICA / DESKTOP",
+    description: "Um sistema desktop para clínicas e consultórios que reúne pacientes, prontuários, agenda inteligente, financeiro e colaboração da equipe em uma única aplicação.",
+    detail: "Construído com Python e PySide6, Supabase e PostgreSQL, com autenticação, Row Level Security e Edge Functions.",
+    href: "https://github.com/arthur-afonso-GIT/Prontu/tree/main",
+    media: [
+      { type: "image", src: "/prontu-dashboard.png", alt: "Painel principal do sistema Prontu", caption: "O FLUXO CLÍNICO EM UM SÓ LUGAR", placement: "wide" },
+      { type: "image", src: "/prontu-pacientes.png", alt: "Lista de pacientes e formulário de cadastro do Prontu", caption: "PACIENTES E CADASTROS", placement: "left" },
+      { type: "image", src: "/prontu-fichas-clinicas.png", alt: "Ficha clínica e histórico de atendimento do Prontu", caption: "FICHAS CLÍNICAS", placement: "right" },
+    ],
+  },
+  {
+    id: "prodtrack",
+    name: "ProdTrack",
+    eyebrow: "PRODUTIVIDADE / DESKTOP",
+    description: "Uma aplicação local para registrar e acompanhar horas trabalhadas, organizar atividades e gerar relatórios profissionais em PDF.",
+    detail: "Desenvolvida com Python, PySide6, Qt Quick e QML, SQLite, pandas, openpyxl e ReportLab. Sem conta e sem servidor.",
+    href: "https://github.com/arthur-afonso-GIT/ProdTrack/tree/main",
+    media: [
+      { type: "image", src: "/prodtrack-dashboard.png", alt: "Tela inicial do sistema ProdTrack", caption: "TRABALHO ORGANIZADO, SEM FRICÇÃO", placement: "wide" },
+    ],
+  },
+  {
+    id: "energiacerta",
+    name: "EnergiaCerta",
+    eyebrow: "ENERGIA SOLAR / AUTOMAÇÃO",
+    description: "Monitoramento de geração e consumo de energia solar residencial, com gerenciamento automático de cargas e comunicação serial com Arduino.",
+    detail: "Python e PySide6 para a interface, Matplotlib para os gráficos, PySerial para o hardware e um modo de simulação para explorar o sistema.",
+    media: [
+      { type: "image", src: "/energiacerta-monitoramento.png", alt: "Monitoramento geral e gerenciamento de cargas do EnergiaCerta", caption: "MONITORAMENTO EM TEMPO REAL", placement: "wide" },
+      { type: "image", src: "/energiacerta-baterias.png", alt: "Estado e histórico do banco de baterias do EnergiaCerta", caption: "BANCO DE BATERIAS", placement: "left" },
+      { type: "image", src: "/energiacerta-desempenho.png", alt: "Gráficos de desempenho e eficiência energética do EnergiaCerta", caption: "DESEMPENHO E EFICIÊNCIA", placement: "right" },
+      { type: "image", src: "/energiacerta-hardware.jpeg", alt: "Protótipo físico do EnergiaCerta com Arduino", caption: "DO SOFTWARE AO HARDWARE", placement: "small" },
+      { type: "video", src: "/energiacerta-demo.mp4", alt: "Demonstração do EnergiaCerta", caption: "SISTEMA EM AÇÃO", placement: "medium" },
+    ],
+  },
+  {
+    id: "dronevision",
+    name: "DroneVision",
+    eyebrow: "VISÃO COMPUTACIONAL / ROBÓTICA",
+    description: "Visão computacional e automação para o drone DJI Tello, com reconhecimento facial, leitura de QR Codes e planejamento de rotas.",
+    detail: "Um projeto acadêmico em Python que explora processamento de imagens, arquitetura modular e integração entre software e hardware.",
+    href: "https://github.com/arrudacaua/DroneVision",
+    media: [
+      { type: "video", src: "/dronevision-demo.mp4", alt: "Primeira demonstração do DroneVision", caption: "VISÃO QUE SAI DO CÓDIGO", placement: "wide" },
+      { type: "video", src: "/dronevision-demo-2.mp4", alt: "Segunda demonstração do DroneVision", caption: "EXPLORANDO O VOO AUTÔNOMO", placement: "right" },
+    ],
+  },
 ] as const;
 
 export default function Home() {
   return (
     <>
       <ScrollEffects />
-      <main className="home">
+      <main className="home" id="inicio">
+        <div className="hero-topline"><span>PORTFÓLIO / 2026</span><span>SISTEMAS DE INFORMAÇÃO</span></div>
         <section className="intro">
-          <h1>Arthur<br />Afonso<span>.</span></h1>
+          <h1><span className="name-line">Arthur</span><span className="name-line name-outline">Afonso<span>.</span></span></h1>
           <p className="lead">Estudante de Sistemas de Informação, atualmente no 2º período, com interesse em Inteligência Artificial, LLMs, Dados e Engenharia de Software. Entusiasta de tecnologia e desenvolvimento de software, busco aprofundar meus conhecimentos por meio de projetos práticos, explorando a construção de aplicações, soluções baseadas em IA e sistemas orientados a dados.</p>
         </section>
         <aside className="socials" aria-label="Redes sociais">
           <a href="https://github.com/arthur-afonso-GIT" target="_blank" rel="noreferrer"><b className="github-label"><img src="/github-mark.png" alt="" />GitHub</b><i>↗</i></a>
           <a href="https://www.linkedin.com/in/arthur-flor%C3%AAncio-afonso/" target="_blank" rel="noreferrer"><span>LinkedIn</span><i>↗</i></a>
-          <img className="profile-photo" src="/arthur-afonso.jpg" alt="Arthur Afonso" />
+          <div className="portrait-frame portrait-cutout"><img className="profile-photo" src="/arthur-cutout.png" alt="Arthur Afonso" width={1168} height={1346} /></div>
         </aside>
+        <a className="explore-link" href="#projetos"><span>Explore os projetos</span><span aria-hidden="true">↓</span></a>
       </main>
-      <section className="project-scroll" aria-label="Projetos principais">
-        <article className="project-panel dark prontu">
-          <div className="project-content">
-            <div className="project-meta"><span>01 / 04</span><a href="https://github.com/arthur-afonso-GIT/Prontu/tree/main" target="_blank" rel="noreferrer"><b className="github-label"><img src="/github-mark.png" alt="" />GitHub</b><i>↗</i></a></div>
-            <h2>Prontu</h2>
-            <div className="project-details">
-              <div className="project-copy">
-                <p>Um sistema desktop de gestão para clínicas e consultórios, desenvolvido para centralizar o fluxo operacional e clínico em uma única aplicação. O sistema reúne gestão de pacientes, prontuários, agenda inteligente, acompanhamento financeiro, retornos, geração de documentos e colaboração entre membros da equipe.</p>
-                <p>O projeto foi desenvolvido em Python com PySide6, utilizando Supabase e PostgreSQL como infraestrutura de dados, além de autenticação, Row Level Security, Edge Functions em TypeScript/Deno e controle de acesso baseado em funções.</p>
-              </div>
-              <img src="/prontu-dashboard.png" alt="Painel principal do sistema Prontu" />
+      <div className="motion-strip" aria-hidden="true"><div>IDEIAS EM CÓDIGO <span>↗</span> INTELIGÊNCIA ARTIFICIAL <span>↗</span> SOFTWARE & DADOS <span>↗</span> IDEIAS EM CÓDIGO <span>↗</span> INTELIGÊNCIA ARTIFICIAL <span>↗</span> SOFTWARE & DADOS <span>↗</span></div></div>
+      <HorizontalStory>
+        <div className="story-opening story-reveal"><span>UMA SELEÇÃO DE PROJETOS</span><p>Ideias que saíram<br />do papel<span>.</span></p><span>ROLE PARA EXPLORAR ↓</span></div>
+        {projects.map((project) => (
+          <article className={`story-chapter ${project.id}`} key={project.id}>
+            <div className="story-intro story-reveal">
+              <p className="story-eyebrow">{project.eyebrow}</p>
+              <h2>{project.name}<span>.</span></h2>
+              <p className="story-description">{project.description}</p>
+              <p className="story-detail">{project.detail}</p>
+              {"href" in project && <a className="story-link" href={project.href} target="_blank" rel="noreferrer">Ver código no GitHub <span aria-hidden="true">↗</span></a>}
             </div>
-          </div>
-        </article>
-        <article className="project-panel light prodtrack">
-          <div className="project-content">
-            <div className="project-meta"><span>02 / 04</span><a href="https://github.com/arthur-afonso-GIT/ProdTrack/tree/main" target="_blank" rel="noreferrer"><b className="github-label"><img src="/github-mark.png" alt="" />GitHub</b><i>↗</i></a></div>
-            <h2>Prodtrack</h2>
-            <div className="project-details">
-              <div className="project-copy">
-                <p>Uma aplicação desktop de produtividade e gestão de atividades de trabalho, desenvolvida para tornar simples e rápido o registro, acompanhamento e comprovação das horas trabalhadas.</p>
-                <p>A aplicação funciona de forma totalmente local, sem depender de servidor, navegador ou criação de conta. Os dados são armazenados em SQLite, com sistema de backups automáticos e manuais. O ProdTrack também oferece geração de relatórios profissionais em PDF.</p>
-                <p>Utiliza pandas, openpyxl e ReportLab, PySide6, Qt Quick e QML.</p>
-              </div>
-              <img src="/prodtrack-dashboard.png" alt="Tela inicial do sistema ProdTrack" />
+            <div className="story-media">
+              {project.media.map((item) => (
+                <figure className={`story-figure ${item.placement} story-reveal`} key={item.src}>
+                  <div className="story-image-wrap">
+                    {item.type === "video" ? <video controls playsInline preload="metadata" aria-label={item.alt}><source src={item.src} type="video/mp4" /></video> : <img src={item.src} alt={item.alt} loading="lazy" />}
+                  </div>
+                  <figcaption>{item.caption}</figcaption>
+                </figure>
+              ))}
             </div>
-          </div>
-        </article>
-        <article className="project-panel dark energiacerta">
-          <div className="project-content">
-            <div className="project-meta"><span>03 / 04</span></div>
-            <h2>energiacerta</h2>
-            <div className="project-details">
-              <div className="project-copy">
-                <p>Uma aplicação desktop voltada ao monitoramento e gerenciamento de energia solar residencial, desenvolvida para acompanhar em tempo real a geração e o consumo de energia de uma residência. O EnergiaCerta possui suporte à comunicação serial com Arduino, permitindo receber medições de dispositivos físicos, mas também conta com um modo de simulação.</p>
-                <p>O sistema também implementa um algoritmo de gerenciamento automático de cargas. Quando identifica um déficit entre geração, consumo e disponibilidade da bateria, a aplicação pode desconectar cargas não críticas considerando sua prioridade e consumo.</p>
-                <p>O projeto foi desenvolvido em Python com PySide6 (Qt), utilizando Matplotlib para visualização de dados, PySerial para comunicação com Arduino e JSON para persistência local.</p>
-              </div>
-              <MediaCarousel />
-            </div>
-          </div>
-        </article>
-        <article className="project-panel light dronevision">
-          <div className="project-content">
-            <div className="project-meta"><span>04 / 04</span><a href="https://github.com/arrudacaua/DroneVision" target="_blank" rel="noreferrer"><b className="github-label"><img src="/github-mark.png" alt="" />GitHub</b><i>↗</i></a></div>
-            <h2>dronevision</h2>
-            <div className="project-details">
-              <div className="project-copy">
-                <p>DroneVision é um sistema modular de visão computacional e automação de drones, desenvolvido em Python como projeto acadêmico. A solução integra processamento de imagens, reconhecimento facial, leitura de QR Codes e planejamento de rotas com o controle do drone DJI Tello, permitindo explorar a aplicação de visão computacional em sistemas autônomos e robótica.</p>
-                <p>Como projeto de engenharia de software, o DroneVision demonstra conhecimentos em Python, visão computacional, processamento de imagens, reconhecimento facial, arquitetura modular, automação e integração software–hardware.</p>
-              </div>
-              <MediaCarousel items={droneVisionMedia} label="Galeria do projeto DroneVision" />
-            </div>
-          </div>
-        </article>
-      </section>
+          </article>
+        ))}
+      </HorizontalStory>
     </>
   );
 }

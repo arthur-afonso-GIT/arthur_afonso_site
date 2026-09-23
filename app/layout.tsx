@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
+import "./projects.css";
+import { WaveBackground } from "./WaveBackground";
 
 export const metadata: Metadata = {
   title: { default: "Arthur Afonso", template: "%s — Arthur Afonso" },
@@ -12,6 +14,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="pt-BR">
       <body>
+        <WaveBackground />
         <header className="header">
           <Link className="wordmark" href="/">Arthur Afonso</Link>
           <nav aria-label="Navegação principal">

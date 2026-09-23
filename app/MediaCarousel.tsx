@@ -3,7 +3,9 @@
 import { useRef, useState } from "react";
 
 const energiaCertaMedia = [
-  { type: "image", src: "/energiacerta-dashboard.jpeg", alt: "Dashboard do EnergiaCerta" },
+  { type: "image", src: "/energiacerta-monitoramento.png", alt: "Monitoramento geral do EnergiaCerta" },
+  { type: "image", src: "/energiacerta-baterias.png", alt: "Banco de baterias do EnergiaCerta" },
+  { type: "image", src: "/energiacerta-desempenho.png", alt: "Gráficos de desempenho do EnergiaCerta" },
   { type: "video", src: "/energiacerta-demo.mp4", alt: "Demonstração do EnergiaCerta" },
   { type: "image", src: "/energiacerta-hardware.jpeg", alt: "Protótipo físico do EnergiaCerta com Arduino" },
 ] as const;
