@@ -62,16 +62,17 @@ export default function Home() {
       <ScrollEffects />
       <main className="home" id="inicio">
         <div className="hero-topline"><span>SISTEMAS DE INFORMAÇÃO</span></div>
-        <section className="intro">
+        <div className="portrait-frame portrait-cutout"><ExpandableImage className="profile-photo" src="/arthur-cutout.png" alt="Arthur Afonso" width={1168} height={1346} /></div>
+        <section className="intro" id="apresentacao">
           <h1><span className="name-line">Arthur</span><span className="name-line name-outline">Afonso<span>.</span></span></h1>
           <p className="lead">Estudante de Sistemas de Informação, atualmente no 2º período, com interesse em Inteligência Artificial, LLMs, Dados e Engenharia de Software. Entusiasta de tecnologia e desenvolvimento de software, busco aprofundar meus conhecimentos por meio de projetos práticos, explorando a construção de aplicações, soluções baseadas em IA e sistemas orientados a dados.</p>
         </section>
         <aside className="socials" aria-label="Redes sociais">
           <a href="https://github.com/arthur-afonso-GIT" target="_blank" rel="noreferrer"><b className="github-label"><img src="/github-mark.png" alt="" />GitHub</b><i>↗</i></a>
           <a href="https://www.linkedin.com/in/arthur-flor%C3%AAncio-afonso/" target="_blank" rel="noreferrer"><span>LinkedIn</span><i>↗</i></a>
-          <div className="portrait-frame portrait-cutout"><ExpandableImage className="profile-photo" src="/arthur-cutout.png" alt="Arthur Afonso" width={1168} height={1346} /></div>
         </aside>
         <a className="scroll-indicator" href="#projetos" aria-label="Ir para os projetos"><span className="scroll-indicator-art" aria-hidden="true" /></a>
+        <a className="scroll-indicator mobile-scroll-indicator" href="#apresentacao" aria-label="Ver apresentação"><span className="scroll-indicator-art" aria-hidden="true" /></a>
       </main>
       <HorizontalStory>
         <div className="story-opening story-reveal"><span>UMA SELEÇÃO DE PROJETOS</span><p>Ideias que saíram<br />do papel<span>.</span></p></div>
