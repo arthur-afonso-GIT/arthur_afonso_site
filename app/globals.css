@@ -134,11 +134,13 @@ a:focus-visible,button:focus-visible { outline:2px solid #88a92c; outline-offset
 @keyframes name-enter { from { opacity:0; transform:translateY(65px) rotate(3deg); clip-path:inset(0 0 100% 0); } to { opacity:1; transform:none; clip-path:inset(0 0 -20% 0); } }
 @media(min-width:1500px) { .home { min-height:850px; } }
 @media(max-width:720px) {
-  .home { grid-template-columns:1fr; gap:2rem; min-height:auto; padding-bottom:2rem; }
+  .home { grid-template-columns:1fr; gap:1.5rem; min-height:auto; padding-bottom:2rem; }
   .hero-topline { font-size:.5rem; letter-spacing:.08em; }
-  .intro h1 { font-size:clamp(4.5rem,22vw,9rem); }
-  .lead { margin-top:2rem; }
-  .socials { width:min(100% - 24px,400px); margin:0 auto; }
+  .intro h1 { font-size:clamp(3rem,18vw,5.5rem); }
+  .lead { margin-top:1.5rem; line-height:1.6; }
+  .scroll-indicator { grid-row:3; margin-top:0; }
+  .socials { grid-row:4; width:min(100% - 24px,400px); margin:0 auto; }
+  .socials a { min-height:48px; }
   .portrait-frame { transform:rotate(-3deg); }
   .profile-photo { width:100%; margin:0; aspect-ratio:5/4; }
   .project-panel.prontu,.project-panel.prodtrack,.project-panel.energiacerta,.project-panel.dronevision { padding-top:3rem; padding-bottom:3.5rem; min-height:auto; }

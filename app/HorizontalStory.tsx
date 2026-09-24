@@ -70,8 +70,12 @@ export function HorizontalStory({ children }: { children: ReactNode }) {
     window.addEventListener("load", measure);
     reducedMotion.addEventListener("change", measure);
     measure();
+    const hash = window.location.hash;
+    const target = hash === "#projetos" || hash === "#premiacoes" ? document.querySelector<HTMLElement>(hash) : null;
+    const anchorFrame = target ? requestAnimationFrame(() => target.scrollIntoView({ block: "start", behavior: "instant" })) : 0;
     return () => {
       cancelAnimationFrame(frame);
+      cancelAnimationFrame(anchorFrame);
       observer.disconnect();
       window.removeEventListener("resize", measure);
       window.removeEventListener("scroll", schedule);

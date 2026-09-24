@@ -143,7 +143,7 @@ html:has(.award-lightbox[open]) { overflow:hidden; }
   .story-horizontal .story-intro h2 { font-size:clamp(3.4rem,13vw,6rem); line-height:.9; }
   .story-horizontal .story-description { margin-top:1.5rem; font-size:clamp(1.1rem,4.5vw,1.6rem); }
   .story-horizontal .story-detail { margin-top:.8rem; font-size:clamp(.8rem,3.2vw,.95rem); line-height:1.5; }
-  .story-horizontal .story-link { margin-top:1.1rem; }
+  .story-horizontal .story-link { min-height:44px; margin-top:1.1rem; align-items:center; }
   .story-horizontal .story-media { display:flex; align-items:center; gap:10vw; width:max-content; height:100%; }
   .story-horizontal .story-figure,.story-horizontal .story-figure.wide,.story-horizontal .story-figure.left,.story-horizontal .story-figure.right,.story-horizontal .story-figure.small,.story-horizontal .story-figure.medium { flex:0 0 auto; width:78vw; margin:0; }
   .story-horizontal .story-figure.left,.story-horizontal .story-figure.small { align-self:flex-start; margin-top:14vh; }
